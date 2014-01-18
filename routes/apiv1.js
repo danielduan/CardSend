@@ -48,6 +48,7 @@ exports.sendcard = function(req, res) {
     },
     message: req.body.message
   };
-  console.log("cardinfo generated");
-  lobcontroller.sendPostCard(cardinfo, req.body.card_design);
+  var response = lobcontroller.sendPostCard(cardinfo, req.body.card_design);
+  response = JSON.stringify(response);
+  res.send(response);
 }
