@@ -1,7 +1,7 @@
 var apicontroller = require("../controllers/APIController");
 var lobcontroller = require("../controllers/LobController");
 
-gets remaining postcards
+//gets remaining postcards
 /api/v1/card/balance?key=_APIKEY_
 exports.cardbalance = function(req, res) {
   var key = req.params.key;
