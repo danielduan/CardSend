@@ -22,10 +22,10 @@ exports.chargecardbalance = function(req, res) {
 
 // send postcards
 // /api/v1/card/send?key=_APIKEY
-to_name, to_address1, to_address2, to_city, to_state, to_zip, to_country,
-from_name, from_address1, from_address2, from_city, from_state,
-from_zip, from_country,
-card_design,
+// to_name, to_address1, to_address2, to_city, to_state, to_zip, to_country,
+// from_name, from_address1, from_address2, from_city, from_state,
+// from_zip, from_country,
+// card_design, message,
 exports.sendcard = function(req, res) {
   var addresses = req.body;
   var cardinfo = {
@@ -47,7 +47,7 @@ exports.sendcard = function(req, res) {
       address_zip: from_zip,
       address_country: from_country
     },
-    design: card_design
+    message: message
   };
-  lobcontroller.sendPostCard(cardinfo);
+  lobcontroller.sendPostCard(cardinfo, card_design);
 }
