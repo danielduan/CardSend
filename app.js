@@ -15,10 +15,6 @@ var db = Mongoose.createConnection(mongoUri);
 var TodoSchema = require('./models/Todo.js').TodoSchema;
 var Todo = db.model('todos', TodoSchema);
 
-//stores api keys
-var APIKeysSchema = require('./models/APIKeys.js').APIKeysSchema;
-var APIKeys = db.model('apikeys', APIKeysSchema);
-
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
