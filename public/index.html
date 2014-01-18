@@ -71,6 +71,7 @@
 									<span class="fa featured fa-plus-circle"></span>
 									<h3>Personalize your card</h3>
 									<p>Fill out some information and personalize your postcard(s).</p>
+
 								</section>
 							</div>
 							<div class="4u">
@@ -97,7 +98,6 @@
 					</header>
 				</article>
 			</div>
-
 		<!-- Payment Options -->
 			<div class="wrapper2 wrapper-style2">
 				<article id="options">
@@ -112,7 +112,7 @@
 									<h3>1 for $5</h3>
 									<br>
 									<p>Order a single postcard for $5. Have a special someone in mind?</p>
-									<a href="#purchase" class="button button-small">Purchase</a>
+									<a href="#purchase" class="button button-small" id="purchase-button1">Purchase</a>
 								</section>
 							</div>
 							<div class="3u">
@@ -122,7 +122,7 @@
 									<h3>2 for $8</h3>
 									<br>
 									<p>Order two postcards for $4 each. Our most popular package!</p>
-									<a href="#purchase" class="button button-small">Purchase</a>
+									<a href="#purchase" class="button button-small" id="purchase-button2">Purchase</a>
 								</section>
 							</div>
 							<div class="3u">
@@ -135,7 +135,7 @@
 									<h3>5 for $16</h3>
 									<br>
 									<p>Order five postcards for $3.20 each. For the entire family!</p>
-									<a href="#purchase" class="button button-small">Purchase</a>
+									<a href="#purchase" class="button button-small" id="purchase-button3">Purchase</a>
 								</section>
 							</div>
 							<div class="3u">
@@ -146,14 +146,14 @@
 									<span class="fa fa-envelope-o"></span>
 									<span class="fa fa-envelope-o"></span>
 									<span class="fa fa-plus"></span>
-									<h3>Custom (5+)</h3>
+									<h3>Custom (6+)</h3>
 									<br>
-									<p style="margin-bottom:1em">Get 5+ cards for $3 each.</p>
+									<p style="margin-bottom:1em">Get 6+ cards for $3 each.</p>
 									<form>
 										<input type="text" style="padding:.40em" name="subject" id="subject" placeholder="# of postcards" />
 									</form>
 									<br>
-									<a href="#purchase" class="button button-small">Purchase</a>
+									<a href="#purchase" class="button button-small" id="purchase-button4">Purchase</a>
 								</section>
 							</div>
 						</div>
@@ -167,11 +167,11 @@
 					<header>
 						<h2>Make your payment!</h2>
 						<span>Input your credit/debit card information below:</span>
-							<section class="box box-style1">
+							<section class="box box-style1" id="confirm-dialog">
 							<span class="fa fa-envelope-o"></span>
-							<h3>What you chose.</h3>
+							<h3>You are about to buy <span id="selection"></span></h3>
 							<br>
-							<p>You are about to pay for really nice goods.</p>
+							<p>We hope you enjoy.</p>
 						</section>
 					</header>
 					<div>
@@ -208,6 +208,12 @@
 										<div class="row" style="text-align:center">
 											<div class="12u">
 												<span id="response">Response</span>
+											</div>
+										</div>
+										<div class="row half">
+											<div class="12u">
+												<p>Already purchased from us? Enter your previous Order ID to buy additional cards:</p>	
+												<input type="text" name="orderid" id="orderid" placeholder="Order ID" />
 											</div>
 										</div>
 										<div class="row">
