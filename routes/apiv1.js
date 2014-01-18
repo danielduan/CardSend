@@ -1,8 +1,8 @@
 var apicontroller = require("../controllers/APIController");
 var lobcontroller = require("../controllers/LobController");
 
-// gets remaining postcards
-// /api/v1/card/balance?key=_APIKEY_
+gets remaining postcards
+/api/v1/card/balance?key=_APIKEY_
 exports.cardbalance = function(req, res) {
   var key = req.params.key;
   console.log('Retrieving key: ' + key);
@@ -13,6 +13,18 @@ exports.cardbalance = function(req, res) {
   response = JSON.stringify(response);
   res.send(response);
 }
+
+// exports.cardbalance = function(req, res) {
+//   var key = req.params.key;
+//   //console.log('Retrieving key: ' + key);
+//   var response = {
+//     "key": key,
+//     "body": req.body
+//     //"remaining postcards": apicontroller.getCardBalance(key)
+//   };
+//   response = JSON.stringify(response);
+//   res.send(response);
+// }
 
 // charges for additional postcards
 // /api/v1/card/charge?key=_APIKEY
