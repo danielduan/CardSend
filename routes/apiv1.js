@@ -27,27 +27,26 @@ exports.chargecardbalance = function(req, res) {
 // from_zip, from_country,
 // card_design, message,
 exports.sendcard = function(req, res) {
-  var addresses = req.body;
   var cardinfo = {
     to: {
-      name: to_name,
-      address_line1: to_address1,
-      address_line2: to_address2,
-      address_city: to_city,
-      address_state: to_state,
-      address_zip: to_zip,
-      address_country: to_country
+      name: req.body.to_name,
+      address_line1: req.body.to_address1,
+      address_line2: req.body.to_address2,
+      address_city: req.body.to_city,
+      address_state: req.body.to_state,
+      address_zip: req.body.to_zip,
+      address_country: req.body.to_country
     },
     from: {
-      name: from_name,
-      address_line1: from_address1,
-      address_line2: from_address2,
-      address_city: from_city,
-      address_state: from_state,
-      address_zip: from_zip,
-      address_country: from_country
+      name: req.body.from_name,
+      address_line1: req.body.from_address1,
+      address_line2: req.body.from_address2,
+      address_city: req.body.from_city,
+      address_state: req.body.from_state,
+      address_zip: req.body.from_zip,
+      address_country: req.body.from_country
     },
-    message: message
+    message: req.body.message
   };
-  lobcontroller.sendPostCard(cardinfo, card_design);
+  lobcontroller.sendPostCard(cardinfo, req.body.card_design);
 }
