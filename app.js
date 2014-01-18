@@ -1,7 +1,7 @@
 var express = require('express')
-  , routes = require('./routes')
   //, user = require('./routes/user')
   , apiv1 = require('./routes/apiv1.js')
+  , PaaSRoutes = require('./routes/PaaSRoutes.js')
   , http = require('http')
   , path = require('path');
 
@@ -48,6 +48,8 @@ if ('development' == app.get('env')) {
 //card send v1
 app.get('/api/v1/card/balance', apiv1.cardbalance);
 app.post('/api/v1/card/send', apiv1.sendcard);
+app.post('/paas/recharge', PaaSRoutes.chargecardbalance);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

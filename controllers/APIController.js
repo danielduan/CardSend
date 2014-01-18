@@ -15,3 +15,13 @@ exports.getCardBalance = function(key) {
     });
   });
 }
+
+exports.makeAPIKey = function() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for( var i=0; i < 16; i++ ) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    //still need to check if key exists, highly doubt it
+    return text;
+}

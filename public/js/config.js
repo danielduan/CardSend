@@ -26,35 +26,53 @@ jQuery(function() {
 		_window = jQuery(window),
 		_nav = jQuery('#nav');
 
-	// Forms
-		if (jQuery.browser.msie && jQuery.browser.version <= 9)
-			jQuery('form').n33_formerize();
+	// // Forms
+	// 	if (jQuery.browser.msie && jQuery.browser.version <= 9)
+	// 		jQuery('form').n33_formerize();
 
-		jQuery('form .form-button-submit').click(function(e) {
-			// $.ajax({
-			// 	type: "POST",
-			//   	url: "http://localhost:5000/api/v1/card/send?key=_APIKEY_",
-			//   	data: {
-			//   	},
-			//   	success: success
-			// });
+	// 	$('#send-card-button').click(function(e) {
+	// 		e.preventDefault();
+	// 		$.ajax({
+	// 			type: "POST",
+	// 		  	url: "http://localhost:5000/api/v1/card/send?key=_APIKEY_",
+	// 		  	data: {
+	// 		  		to_name: $("#to_name").val(),
+	// 		  		to_address1: $("#to_address1").val(),
+	// 		  		to_address2: $("#to_address2").val(),
+	// 		  		to_city: $("#to_city").val(),
+	// 		  		to_state: $("#to_state").val(),
+	// 		  		to_country: $("#to_country").val(),
+	// 		  		to_zip: $("#to_zip").val(),
 
-			e.preventDefault();
-			jQuery(this).closest('form').submit();
-		});
+	// 		  		from_name: $("#from_name").val(),
+	// 		  		from_address1: $("#from_address1").val(),
+	// 		  		from_address2: $("#from_address2").val(),
+	// 		  		from_city: $("#from_city").val(),
+	// 		  		from_state: $("#from_state").val(),
+	// 		  		from_country: $("#from_country").val(),
+	// 		  		from_zip: $("#from_zip").val(),
+
+	// 		  		message: $("#message").val()
+	// 		  	},
+	// 		  	success: function(data) {
+	// 					$("#response").text(data);
+	// 		  	}
+	// 		});
+	// 		jQuery(this).closest('form').submit();
+	// 	});
 		jQuery('form .form-button-reset').click(function(e) { e.preventDefault(); jQuery(this).closest('form')[0].reset();
 	});
 	
 	// Links
-		jQuery('a').click(function(e) {
-			var t = jQuery(this), h = t.attr('href'), article;
+		// jQuery('a').click(function(e) {
+		// 	var t = jQuery(this), h = t.attr('href'), article;
 
-			if (h.charAt(0) == '#' && h.length > 1 && (article = jQuery('article#' + h.substring(1))).length > 0)
-			{
-				var pos = Math.max(article.parent().offset().top - _nav.height() + 15, 0);
-				e.preventDefault();
-				_bh.animate({ scrollTop: pos }, 'slow', 'swing');
-			}
-		});
+		// 	if (h.charAt(0) == '#' && h.length > 1 && (article = jQuery('article#' + h.substring(1))).length > 0)
+		// 	{
+		// 		var pos = Math.max(article.parent().offset().top - _nav.height() + 15, 0);
+		// 		e.preventDefault();
+		// 		_bh.animate({ scrollTop: pos }, 'slow', 'swing');
+		// 	}
+		// });
 
 });

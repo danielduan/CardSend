@@ -9,9 +9,6 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" />
-		<script src="js/jquery.min.js"></script>
-		<script src="js/config.js"></script>
-		<script src="js/skel.min.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -28,6 +25,7 @@
 				<ul class="container">
 					<li><a href="#home">Home</a></li>
 					<li><a href="#how">How it works!</a></li>
+					<li><a href="#designs">Designs</a></li>
 					<li><a href="#options">Packages</a></li>
 				</ul>
 			</nav>
@@ -46,7 +44,7 @@
 						</div>
 
 						<div class="4u">
-							<span><img src="images/post.png" alt="" /></span>
+							<span><img src="images/post.png"/></span>
 						</div>
 						
 					</div>
@@ -63,16 +61,16 @@
 						<div class="row">
 							<div class="4u">
 								<section class="box box-style1">
-									<span class="fa featured fa-plus-circle"></span>
-									<h3>Customize your card</h3>
-									<p>Fill out some information and customize your postcard.</p>
+									<span class="fa featured fa-dollar"></span>
+									<h3>Buy Postcards</h3>
+									<p>Purchase the number of postcards you would like to send out.</p>
 								</section>
 							</div>
 							<div class="4u">
 								<section class="box box-style1">
-									<span class="fa featured fa-dollar"></span>
-									<h3>Buy Postcards</h3>
-									<p>Purchase the number of postcards you would like to send out.</p>
+									<span class="fa featured fa-plus-circle"></span>
+									<h3>Personalize your card</h3>
+									<p>Fill out some information and personalize your postcard(s).</p>
 								</section>
 							</div>
 							<div class="4u">
@@ -86,109 +84,19 @@
 					</div>
 					<footer>
 						<p>Ready to make some awesome postcards?</p>
-						<a href="#design" class="button button-big">Personalize your postcard!</a>
+						<a href="#options" class="button button-big">Select a package.</a>
 					</footer>
 				</article>
 			</div>
 
-		<!-- Design -->
-			<div class="wrapper2 wrapper-style3">
-				<article id="design">
-					<header style="margin-bottom: 1.5em">
-						<h2>Personalize your postcards here</h2>
-						<span>Choose a design below or upload your own image to be put on the postcard.</span>
+		<!-- Designs -->
+			<div class="wrapper2 wrapper-style2">
+				<article id="designs">
+					<header>
+						<h2>Select from a variety of designs!</h2>
 					</header>
-					<div class="container">
-						<div class="row">
-							<div class="12u">
-							</div>
-						</div>
-						<div class="row">
-							<div class="3u">
-								<article class="box box-style2">
-									<div class="image image-full"><img src="images/thanks.jpg" alt="" /></div>
-									<h3>"Thank you!"</h3>
-									<p>Perfect for any situation!</p>
-								</article>
-							</div>
-							<div class="3u">
-								<article class="box box-style2">
-									<div class="image image-full"><img src="images/love.jpg" alt="" /></div>
-									<h3>"Love you!"</h3>
-									<p>For a special someone...</p>
-								</article>
-							</div>
-							<div class="3u">
-								<article class="box box-style2">
-									<div class="image image-full"><img src="images/better.jpg" alt="" /></div>
-									<h3>"Get better!"</h3>
-									<p>Help them get better!</p>
-								</article>
-							</div>
-							<div class="3u">
-								<article class="box box-style2">
-									<div class="image image-full"><img src="images/portfolio05.jpg" alt="" /></div>
-									<h3>Custom</h3>
-									<p>Upload your own image!</p>
-								</article>
-							</div>
-						</div>
-					</div>
-					<footer>
-						<article class="container small">
-							<div class="row">
-								<div class="6u">
-									<h3>To:</h3>
-									</div>
-								<div class="6u">
-									<h3>From:</h3>
-									</div>
-							</div>
-							<form>
-								<div class="row half">
-									<div class ="6u" id = "to" class = "toAddress">
-										<input type="text" name="to_name" id="to_name" style="width:90%" placeholder="Full Name">
-										<input type="text" name="to_address1" id="to_address1" style="width:90%" placeholder="Address line 1 (Street address)">
-										<input type="text" name="to_address2" id="to_address2" style="width:90%" placeholder="Address line 2 (Apt/Room #)">
-									<div class="row">
-									<div class ="7u">
-										<input type="text" name="to_city" id="to_city" style="width:80%" placeholder="City">
-									</div>
-									<div class="4u">
-										<input type="text" name="to_state" id="to_state" style="width:120%" placeholder="State">
-									</div>
-									</div>
-										<input type="text" name="to_country" id="to_country" style="width:90%" placeholder="Country">
-										<input type="text" name="to_zip" id="to_zip" style="width:90%" placeholder="ZIP">
-									</div>
-
-									<div class ="6u" id = "from" class = "fromAddress">
-										<input type="text" name="from_name" id="from_name" style="width:90%" placeholder="Full Name">
-										<input type="text" name="from_address1" id="from_address1" style="width:90%" placeholder="Address line 1 (Street address)">
-										<input type="text" name="from_address2" id="from_address2" style="width:90%" placeholder="Address line 2 (Apt/Room #)">
-									<div class="row">
-									<div class ="7u">
-										<input type="text" name="from_city" id="from_city" style="width:80%" placeholder="City">
-									</div>
-									<div class="4u">
-										<input type="text" name="from_state" id="from_state" style="width:120%" placeholder="State">
-									</div>
-									</div>
-										<input type="text" name="from_country" id="from_country" style="width:90%" placeholder="Country">
-										<input type="text" name="from_zip" id="from_zip" style="width:90%" placeholder="ZIP">
-									</div>
-								</div>
-								<div class="12u">
-									<br><br>
-									<h3> Your message: </h3>
-									<textarea maxlength="300" name="message" placeholder="Type your message here! Limit to 300 characters."></textarea>
-								</div>
-							</form>
-							<a href="#options" class="button button-big">Select a package</a>
-						</article>
-					</footer>
 				</article>
-			</div> 
+			</div>
 
 		<!-- Payment Options -->
 			<div class="wrapper2 wrapper-style2">
@@ -258,12 +166,18 @@
 				<article id="purchase" class="container small" style="width:650px">
 					<header>
 						<h2>Make your payment!</h2>
-						<span>Input your credit/debit card information below</span>
+						<span>Input your credit/debit card information below:</span>
+							<section class="box box-style1">
+							<span class="fa fa-envelope-o"></span>
+							<h3>What you chose.</h3>
+							<br>
+							<p>You are about to pay for really nice goods.</p>
+						</section>
 					</header>
 					<div>
 						<div class="row">
 							<div class="12u">
-								<form method="post" action="#">
+								<form id="payment-form">
 									<div>
 										<div class="row half">
 											<div class="12u">										
@@ -277,23 +191,32 @@
 											</div>
 										</div>
 
-										<div class="row">
+										<div class="row half">
 												<div class="6u">
-													<input type="text" name="cardnumber" id="cardnumber" placeholder="Card Number" />
+													<input type="text" name="cardnumber" id="cardnumber" placeholder="Card Number" data-stripe="number"/>
 												</div>
 												<div class="2u">
-													<input type="text" name="cvc" id="cvc" placeholder="CVC" />
+													<input type="text" name="cvc" id="cvc" placeholder="CVC" data-stripe="cvc"/>
 												</div>
-												<div class="4u">
-													<input type="text" name="expirationmonth" id="expirationmonth" placeholder="(MM/YYYY)" />
+												<div class="2u">
+													<input type="text" name="expirationmonth" id="expirationmonth" placeholder="MM" data-stripe="exp-month"/>
 												</div>
+                        <div class="2u">
+                          <input type="text" name="expirationyear" id="expirationyear" placeholder="YYYY" data-stripe="exp-year"/>
+                        </div>
+										</div>
+										<div class="row" style="text-align:center">
+											<div class="12u">
+												<span id="response">Response</span>
+											</div>
 										</div>
 										<div class="row">
 											<div class="12u">
-												<a href="#" class="button form-button-submit">Submit Payment</a>
-												<a href="#" class="button button-alt form-button-reset">Clear Form</a>
+												<a id="payment-submit" class="button form-button-submit">Submit Payment</a>
+												<a class="button button-alt form-button-reset">Clear Form</a>
 											</div>
 										</div>
+
 									</div>
 								</form>
 							</div>
@@ -307,7 +230,9 @@
 					</footer>
 				</article>
 			</div>
-
-
+	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/skel.min.js"></script>
 	</body>
 </html>
