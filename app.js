@@ -15,6 +15,13 @@ var db = Mongoose.createConnection(mongoUri);
 var TodoSchema = require('./models/Todo.js').TodoSchema;
 var Todo = db.model('todos', TodoSchema);
 
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', config.allowedDomains);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+}
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -23,6 +30,7 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
+app.use(allowCrossDomain);
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
