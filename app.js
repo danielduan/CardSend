@@ -1,6 +1,7 @@
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
+  , apiv1 = require('./routes/apiv1.js')
   , http = require('http')
   , path = require('path');
 
