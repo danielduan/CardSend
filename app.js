@@ -6,38 +6,60 @@ var express = require('express')
 
 var app = express();
 
-var Mongoose = require('mongoose');
-var mongoUri = process.env.MONGOHQ_URL ||
-  'mongodb://localhost/mydb';
-var db = Mongoose.createConnection(process.env.MONGOLAB_URI, 'tyaas');
 
-var TodoSchema = require('./models/Todo.js').TodoSchema;
-var Todo = db.model('todos', TodoSchema);
+var http = require ('http');             // For serving a basic web page.
+var mongoose = require ("mongoose"); // The reason for this demo.
 
-// all environments
-app.set('port', process.env.PORT || 3000);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+// Here we find an appropriate database to connect to, defaulting to
+// localhost if we don't find one.
+var uristring =
+process.env.MONGOLAB_URI ||
+process.env.MONGOHQ_URL ||
+'mongodb://localhost/HelloMongoose';
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
+var theport = process.env.PORT || 5000;
 
-app.get('/', routes.index(Todo));
-app.get('/users', user.list);
-app.get('/todos.json', routes.get(Todo));
-
-app.put('/todo/:id.json', routes.update(Todo));
-
-app.post('/todo.json', routes.addTodo(Todo));
-
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+mongoose.connect(uristring, function (err, res) {
+  if (err) {
+  console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+  console.log ('Succeeded connected to: ' + uristring);
+  }
 });
+
+
+// var Mongoose = require('mongoose');
+// var mongoUri = process.env.MONGOHQ_URL ||
+//   'mongodb://localhost/mydb';
+// var db = Mongoose.createConnection(process.env.MONGOLAB_URI, 'tyaas');
+
+// var TodoSchema = require('./models/Todo.js').TodoSchema;
+// var Todo = db.model('todos', TodoSchema);
+
+// // all environments
+// app.set('port', process.env.PORT || 3000);
+// app.set('views', __dirname + '/views');
+// app.set('view engine', 'jade');
+// app.use(express.favicon());
+// app.use(express.logger('dev'));
+// app.use(express.bodyParser());
+// app.use(express.methodOverride());
+// app.use(app.router);
+// app.use(express.static(path.join(__dirname, 'public')));
+
+// // development only
+// if ('development' == app.get('env')) {
+//   app.use(express.errorHandler());
+// }
+
+// app.get('/', routes.index(Todo));
+// app.get('/users', user.list);
+// app.get('/todos.json', routes.get(Todo));
+
+// app.put('/todo/:id.json', routes.update(Todo));
+
+// app.post('/todo.json', routes.addTodo(Todo));
+
+// http.createServer(app).listen(app.get('port'), function(){
+//   console.log('Express server listening on port ' + app.get('port'));
+// });
