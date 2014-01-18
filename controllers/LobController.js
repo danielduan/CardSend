@@ -1,7 +1,7 @@
 var LOB = new (require('lob'))(process.env.LOBKEY_TEST);
 
 exports.sendPostCard = function(postcard, design) {
-  var fronturl = "@public/cards/front.pdf";
+  var fronturl = "http://postasaservice.herokuapp.com/public/cards/front.pdf";
   postcard.front = fronturl;
   console.log("before LOB");
   console.log(postcard);
