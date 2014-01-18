@@ -4,6 +4,7 @@ exports.sendPostCard = function(postcard, design) {
   var fronturl = "@public/cards/front.pdf";
   postcard.front = fronturl;
   console.log("before LOB");
+  console.log(postcard);
   LOB.postcards.create(postcard, function(err, res) {
     console.log(err,res);
   });
