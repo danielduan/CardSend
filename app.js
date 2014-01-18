@@ -39,6 +39,7 @@ app.post('/todo.json', routes.addTodo(Todo));
 
 //card send v1
 app.get('/api/v1/card/balance', apiv1.cardbalance);
+app.get('/api/v1/card/send', apiv1.sendcard);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
