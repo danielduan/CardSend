@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>PostaaS (Post as a service!): Personalize</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/skel.min.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+		<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css" /><![endif]-->
+	</head>
+
+	<body>
+		<!-- Nav -->
+		<nav id="nav">
+			<ul class="container">
+				<li><a href="index.html/#home">Home</a></li>
+				<li><a href="index.html/#how">How it works!</a></li>
+				<li><a href="index.html/#designs">Designs</a></li>
+				<li><a href="index.html/#options">Packages</a></li>
+			</ul>
+		</nav>
+
+		<!-- Personalize -->
+		<div class="wrapper2 wrapper-style3">
+			<article id="personalize">
+				<header style="margin-bottom: 1.5em">
+					<h2>Personalize your postcards here.</h2>
+					<span>Choose a design below or upload your own image to be put on the postcard.</span>
+				</header>
+				<div class="container">
+					<div class="row">
+						<div class="12u">
+						</div>
+					</div>
+					<div class="row">
+						<div class="3u">
+							<article class="box box-style2">
+								<div class="image image-full"><img src="images/thanks.jpg" alt="" /></div>
+								<h3>"Thank you!"</h3>
+								<p>Perfect for any situation!</p>
+							</article>
+						</div>
+						<div class="3u">
+							<article class="box box-style2">
+								<div class="image image-full"><img src="images/love.jpg" alt="" /></div>
+								<h3>"Love you!"</h3>
+								<p>For a special someone...</p>
+							</article>
+						</div>
+						<div class="3u">
+							<article class="box box-style2">
+								<div class="image image-full"><img src="images/better.jpg" alt="" /></div>
+								<h3>"Get better!"</h3>
+								<p>Help them get better!</p>
+							</article>
+						</div>
+						<div class="3u">
+							<article class="box box-style2">
+								<div class="image image-full"><img src="images/portfolio05.jpg" alt="" /></div>
+								<h3>Custom</h3>
+								<p>Upload your own image!</p>
+							</article>
+						</div>
+					</div>
+				</div>
+				<footer>
+					<article class="container small">
+						<div class="row">
+							<div class="6u">
+								<h3>To:</h3>
+								</div>
+							<div class="6u">
+								<h3>From:</h3>
+								</div>
+						</div>
+						<form name="address_info" >
+							<div class="row half">
+								<div class ="6u" id = "to" class = "toAddress">
+									<input type="text" name="to_name" id="to_name" placeholder="Full Name">
+									<input type="text" name="to_address1" id="to_address1" placeholder="Address line 1 (Street address)">
+									<input type="text" name="to_address2" id="to_address2" placeholder="Address line 2 (Apt/Room #)">
+								<div class="row half">
+									<div class ="6u">
+										<input type="text" name="to_city" id="to_city" placeholder="City">
+									</div>
+									<div class="3u">
+										<input type="text" name="to_state" id="to_state" placeholder="State">
+									</div>
+									<div class="3u">
+										<input type="text" name="to_zip" id="to_zip" placeholder="ZIP">
+									</div>
+								</div>
+									<input type="text" name="to_country" id="to_country" placeholder="Country">
+								</div>
+								<div class ="6u" id = "from" class = "fromAddress">
+									<input type="text" name="from_name" id="from_name" placeholder="Full Name">
+									<input type="text" name="from_address1" id="from_address1" placeholder="Address line 1 (Street address)">
+									<input type="text" name="from_address2" id="from_address2" placeholder="Address line 2 (Apt/Room #)">
+								<div class="row half">
+									<div class ="6u">
+										<input type="text" name="from_city" id="from_city" placeholder="City">
+									</div>
+									<div class="3u">
+										<input type="text" name="from_state" id="from_state" placeholder="State">
+									</div>
+									<div class="3u">
+										<input type="text" name="from_zip" id="from_zip" placeholder="ZIP">
+									</div>
+								</div>
+									<input type="text" name="from_country" id="from_country" placeholder="Country">
+								</div>
+							</div>
+							<div class="12u">
+								<br><br>
+								<h3> Your message: </h3>
+								<textarea maxlength="300" name="message" placeholder="Type your message here! Limit to 300 characters."></textarea>
+								<span id="limit-warning"></span>
+							</div>
+							<div class="12u">
+								<h3>Redeem Order ID:</h3>
+								<input type="text" name="orderid" id="orderid" placeholder="Order ID" />
+							</div>
+						</form>
+						<a href="" class="button form-button-submit" id="send-card-button" >Send your postcard now!</a>
+						<span id="response"></span>
+					</article>
+				</footer>
+			</article>
+			<footer>
+			<ul id="copyright">
+				<p>Created at MHacks 2014 by Kenny Shi, Daniel Duan, Jeffrey Wang</p>
+				<p>&copy; 2014 Postaas</p>
+			</ul>
+		</footer>
+		</div>
+	</body>
+</html>
