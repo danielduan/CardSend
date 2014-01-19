@@ -9,10 +9,9 @@ exports.chargePostCard = function(req, res) {
   var apikey = charge.apikey;
   var email = charge.email;
   charge.amount = parseInt(charge.amount);
-
-  //no apikey, generate one
-  if (!apikey || apikey == "") {
-    apikey = apicontroller.makeAPIKey();
+  if (charge.amount > 100) {
+    res.jsonp("Please contact us for orders more than 100 postcards. Thanks.");
+    return;
   }
 
   //create charge to LOB
@@ -23,6 +22,11 @@ exports.chargePostCard = function(req, res) {
     description: "PostaaS Order " + apikey,
   }, function(err, charge) {
     if (charge) {
+      //no apikey, generate one
+      if (!apikey || apikey == "") {
+        apikey = apicontroller.makeAPIKey();
+      }
+
       var cards = 0;
       charge.amount = charge.amount / 100;
       //count how many credits
