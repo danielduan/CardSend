@@ -51,7 +51,7 @@ $(function() {
 		$("#subject").val(quantity);
 		var output = quantity + " cards for $" + 3*quantity;
 		$("#selection").text(output);
-		$("#selecion").attr("cost", 3*quantity);
+		$("#selection").attr("cost", 3*quantity);
 		$("#confirm-dialog").show();
 	});	
 });
