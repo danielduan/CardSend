@@ -24,9 +24,11 @@ jQuery(function($) {
     var $form = $('#payment-form'); 
     if (response.error) {
       // Show the errors on the form
+      $("#response").css("color", "red");
       $("#response").text(response.error.message);
       //$form.find('button').prop('disabled', false);
     } else {
+      $("#response").css("color", "green");
       $("#response").text("Processing payment...");
       // token contains id, last4, and card type
       var token = response.id;
@@ -45,6 +47,7 @@ jQuery(function($) {
         jsonp: "json",
         dataType: 'json', // Pay attention to the dataType/contentType
         success: function (data) {
+          $("#response").css("color", "green");
           $("#response").text(data);
           $('#payment-submit').attr("href", "");
         }
