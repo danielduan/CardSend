@@ -36,9 +36,9 @@ jQuery(function($) {
       jsonp: "json",
       dataType: 'json', // Pay attention to the dataType/contentType
       success: function (data) {
-        if (data.error) {
+        if (data.err) {
           $("#response").css("color", "red");
-          $("#response").text(data.error);
+          $("#response").text(data.err);
         } else if (data.success) {
           $("#response").css("color", "green");
           $("#response").text(data.success);
@@ -48,8 +48,8 @@ jQuery(function($) {
         } else {
           $("#response").css("color", "red");
           $("#response").text("Error");
-        }
-        console.log(data);
+          }
+          console.log(data);
         $('#send-card-button').attr("href", "");
       }
     });
