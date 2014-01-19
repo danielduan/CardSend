@@ -22,7 +22,7 @@ exports.cardbalance = function(req, res) {
 // from_zip, from_country,
 // card_design, message,
 exports.sendcard = function(req, res) {
-  apicontroller.checkCardBalance(req.body.apikey, res, function(){
+  apicontroller.checkCardBalance(req.body.apikey, res, function(res){
     var cardinfo = {
       to: {
         name: req.body.to_name,
@@ -44,9 +44,7 @@ exports.sendcard = function(req, res) {
       },
       message: req.body.message
     };
-    var response = lobcontroller.sendPostCard(cardinfo, req.body.card_design);
-    response = JSON.stringify(response);
-    res.send(response);
+    lobcontroller.sendPostCard(cardinfo, res, req.body.card_design);
     apicontroller.useCredits(req.body.apikey, 1);
   });
 }
