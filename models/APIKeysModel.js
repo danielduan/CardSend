@@ -60,7 +60,7 @@ exports.addCardCredit = function(key, credits) {
       return console.log(err);
     }
     //console.log(apikey);
-    apikey += credits;
+    apikey.card_balance += credits;
     apikey.save(function(err, apikey) {
       if (err) {
         return console.log(err);
@@ -75,7 +75,7 @@ exports.getCredits = function(key) {
     if (err) {
       return console.log(err);
     }
-    return apikey.credits;
+    return apikey.card_balance;
   });
 }
 
@@ -85,7 +85,7 @@ exports.useCredits = function(key, credits) {
       return console.log(err);
     }
     //console.log(apikey);
-    apikey -= credits;
+    apikey.card_balance -= apikey;
     apikey.save(function(err, apikey) {
       if (err) {
         return console.log(err);
