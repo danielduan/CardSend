@@ -44,9 +44,7 @@ exports.sendcard = function(req, res) {
       },
       message: req.body.message
     };
-    var response = lobcontroller.sendPostCard(cardinfo, req.body.card_design);
-    response = JSON.stringify(response);
-    res.send(response);
+    lobcontroller.sendPostCard(cardinfo, res, req.body.card_design);
     apicontroller.useCredits(req.body.apikey, 1);
   });
 }
