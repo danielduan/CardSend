@@ -2,6 +2,14 @@ jQuery(function($) {
   $('#send-card-button').click(function(event) {
     event.preventDefault();
     $('#send-card-button').attr("href", " ");
+    if (validateAddress() != "Valid") {
+      $("#response").css("color", "red");
+      $("#response").text(validateAddress());
+      return;
+    }
+
+    $("#response").text("Submitting postcard...");
+    $("#response").css("color", "green");
 
     $.ajax({
       type: 'POST',
@@ -28,7 +36,9 @@ jQuery(function($) {
       jsonp: "json",
       dataType: 'json', // Pay attention to the dataType/contentType
       success: function (data) {
+        $("#response").css("color", "green");
         $("#response").text(data);
+        console.log(data);
         $('#send-card-button').attr("href", "");
       }
     });

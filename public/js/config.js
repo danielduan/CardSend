@@ -106,7 +106,7 @@ $(function() {
 	$("#card-confirm-dialog").hide();
 	$("#choice-fsck").click(function() {
 		$("#selection-image").html('<img src="images/fsck.png" alt="" />');
-		$("#selection").text('=)');
+		$("#selection").text(':)');
 		$("#selection").attr("card-type", "fsck.pdf");
 		$("#card-confirm-dialog").show();
 	});
