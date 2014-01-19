@@ -32,9 +32,9 @@ exports.chargePostCard = function(req, res) {
       //count how many credits
       if (charge.amount < 5) {
         cards = 0;
-      } else if (charge.amount >= 5 && < 8) {
+      } else if (charge.amount >= 5 && charge.amount < 8) {
         cards = 1;
-      } else if (charge.amount >= 8 && < 16) {
+      } else if (charge.amount >= 8 && charge.amount < 16) {
         cards = 2;
       } else if (charge.amount == 16) {
         cards = 5;
