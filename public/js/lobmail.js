@@ -36,7 +36,7 @@ jQuery(function($) {
       jsonp: "json",
       dataType: 'json', // Pay attention to the dataType/contentType
       success: function (data) {
-        if (data[0].message) {
+        if (data[0].message != null) {
           $("#response").css("color", "red");
           $("#response").text(data);
         } else {
