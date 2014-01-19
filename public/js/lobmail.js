@@ -38,6 +38,7 @@ jQuery(function($) {
       success: function (data) {
         $("#response").css("color", "green");
         $("#response").text(data);
+        console.log(data);
         $('#send-card-button').attr("href", "");
       }
     });
