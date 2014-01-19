@@ -36,12 +36,12 @@ jQuery(function($) {
       jsonp: "json",
       dataType: 'json', // Pay attention to the dataType/contentType
       success: function (data) {
-        if (data[0].message) {
+        if (data.error) {
           $("#response").css("color", "red");
           $("#response").text(data);
-        } else if (data[0].status) {
+        } else if (data.success) {
           $("#response").css("color", "green");
-          var message = data[0].object + " " + data[0].status;
+          var message = data.success;
           $("#response").text(message);
         } else if (data) {
           $("#response").css("color", "red");

@@ -8,9 +8,11 @@ exports.sendPostCard = function(postcard, res, design) {
   LOB.postcards.create(postcard, function(err, response) {
     console.log("sending card");
     if (err) {
-      res.jsonp(err[0].message);
+      var error = {};
+      error.err = err[0].message;
+      res.jsonp(error);
       return;
     }
-    res.jsonp(response);
+    res.jsonp("Postcard sent!");
   });
 }
