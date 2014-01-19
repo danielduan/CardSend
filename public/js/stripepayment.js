@@ -3,13 +3,21 @@ Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
 jQuery(function($) {
   $('#payment-submit').click(function(event) {
     event.preventDefault();
-    var $form = $("#payment-form");
+
+    if (validatePayment() != "Valid") {
+      $("#response").text(validatePayment());
+      $("#response").css("color", "red");
+      return;
+    }
 
     // Disable the submit button to prevent repeated clicks
-    //$form.find('button').prop('disabled', true);
+    $('#payment-submit').attr("href", "javascript:;");
+
+    var $form = $("#payment-form");
 
     Stripe.card.createToken($form, stripeResponseHandler);
     $("#response").text("Submitting payment...");
+    $("#response").css("color", "green");
   });
 
 
@@ -26,12 +34,12 @@ jQuery(function($) {
       // Insert the token into the form so it gets submitted to the server
       $form.append($('<input type="hidden" name="stripeToken" />').val(token));
       // and submit
-      //$form.get(0).submit();
       $.ajax({
         type: 'POST',
         url: "/paas/recharge",
         data: {
           apikey: $('#orderid').val(),
+          email: $('#email').val(),
           token: token,
           amount: $("#selection").attr("cost"),
         },
@@ -39,6 +47,7 @@ jQuery(function($) {
         dataType: 'json', // Pay attention to the dataType/contentType
         success: function (data) {
           $("#response").text(data);
+          $('#payment-submit').attr("href", "");
         }
       });
     }

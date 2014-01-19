@@ -1,3 +1,4 @@
+var sendgridcontroller = require("../controllers/SendGridController.js");
 var apicontroller = require("../controllers/APIController");
 
 var stripeKey = process.env.STRIPEKEY_TEST || "sk_test_BQokikJOvBiI2HlWgH4olfQ2";
@@ -38,7 +39,9 @@ exports.chargePostCard = function(req, res) {
         cards = charge.amount / 3;
       }
       //send response
-      var response = "Charge for " + cards + "credits successful. ";
+      sendgridcontroller.sendChargeConfirmation(charge.email, apikey, cards, charge.amount);
+
+      var response = "Transaction for " + cards + " credits is successful. ";
       response += "You Order ID is " + apikey + ".";
       res.jsonp(response);
     } else if (err) {

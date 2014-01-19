@@ -1,4 +1,3 @@
-var apicontroller = require("../controllers/APIController");
 var stripecontroller = require("../controllers/StripeController");
 
 // charges for additional postcards
@@ -10,3 +9,4 @@ var stripecontroller = require("../controllers/StripeController");
 exports.chargecardbalance = function(req, res) {
   stripecontroller.chargePostCard(req, res);
 }
+
