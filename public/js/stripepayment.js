@@ -20,7 +20,6 @@ jQuery(function($) {
     $("#response").css("color", "green");
   });
 
-
   var stripeResponseHandler = function(status, response) {
     var $form = $('#payment-form'); 
     if (response.error) {

@@ -10,7 +10,7 @@ exports.sendChargeConfirmation = function(email, key, credits, price){
   sendgrid.send({
     to: email,
     from: 'confirmation@postasaservice.herokuapp.com',
-    subject: 'Post as a Service Order Confirmation',
+    subject: 'PostaaS Order Confirmation',
     text: message
   }, function(err, json) {
   if (err) { return console.error(err); }
