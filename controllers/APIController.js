@@ -1,12 +1,7 @@
 var apikeysmodel = require('../models/APIKeysModel.js');
 
-exports.getCardBalance = function(key) {
-  // db.collection('apikeys', function(err, api) {
-  //   api.findOne({'key':key}, 'card_balance', function(err, api) {
-  //       console.log("balance of " + apikey + ": balance " + api.card_balance);
-  //       return api.card_balance;
-  //   });
-  // });
+exports.checkCardBalance = function(key, res, callback) {
+  apikeysmodel.checkCardCredits(key, res, callback);
 }
 
 exports.makeAPIKey = function() {
@@ -21,5 +16,9 @@ exports.makeAPIKey = function() {
 }
 
 exports.addCredits = function(apikey, credits) {
-  apikeysmodel.addCardCredit(apikey, credits);
+  apikeysmodel.addCardCredits(apikey, credits);
+}
+
+exports.useCredits = function(apikey, credits) {
+  apikeysmodel.useCardCredits(apikey, credits);
 }

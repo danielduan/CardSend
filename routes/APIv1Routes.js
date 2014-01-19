@@ -22,28 +22,31 @@ exports.cardbalance = function(req, res) {
 // from_zip, from_country,
 // card_design, message,
 exports.sendcard = function(req, res) {
-  var cardinfo = {
-    to: {
-      name: req.body.to_name,
-      address_line1: req.body.to_address1,
-      address_line2: req.body.to_address2,
-      address_city: req.body.to_city,
-      address_state: req.body.to_state,
-      address_zip: req.body.to_zip,
-      address_country: req.body.to_country
-    },
-    from: {
-      name: req.body.from_name,
-      address_line1: req.body.from_address1,
-      address_line2: req.body.from_address2,
-      address_city: req.body.from_city,
-      address_state: req.body.from_state,
-      address_zip: req.body.from_zip,
-      address_country: req.body.from_country
-    },
-    message: req.body.message
-  };
-  var response = lobcontroller.sendPostCard(cardinfo, req.body.card_design);
-  response = JSON.stringify(response);
-  res.send(response);
+  apicontroller.checkCardBalance(req.body.apikey, res, function(){
+    var cardinfo = {
+      to: {
+        name: req.body.to_name,
+        address_line1: req.body.to_address1,
+        address_line2: req.body.to_address2,
+        address_city: req.body.to_city,
+        address_state: req.body.to_state,
+        address_zip: req.body.to_zip,
+        address_country: req.body.to_country
+      },
+      from: {
+        name: req.body.from_name,
+        address_line1: req.body.from_address1,
+        address_line2: req.body.from_address2,
+        address_city: req.body.from_city,
+        address_state: req.body.from_state,
+        address_zip: req.body.from_zip,
+        address_country: req.body.from_country
+      },
+      message: req.body.message
+    };
+    var response = lobcontroller.sendPostCard(cardinfo, req.body.card_design);
+    response = JSON.stringify(response);
+    res.send(response);
+    apicontroller.useCredits(req.body.apikey, 1);
+  });
 }
