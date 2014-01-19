@@ -22,7 +22,7 @@ exports.cardbalance = function(req, res) {
 // from_zip, from_country,
 // card_design, message,
 exports.sendcard = function(req, res) {
-  apicontroller.checkCardBalance(req.body.apikey, function(){
+  apicontroller.checkCardBalance(req.body.apikey, res, function(){
     var cardinfo = {
       to: {
         name: req.body.to_name,

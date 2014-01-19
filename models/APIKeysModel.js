@@ -78,14 +78,16 @@ exports.useCardCredits = function(key, credits) {
   });
 }
 
-exports.checkCardCredits = function(key, callback) {
+exports.checkCardCredits = function(key, res, callback) {
   APIKey.findOne({key:key}, function (err, apikey) {
     if (err) {
+      res.jsonp(err);
       return console.log(err);
     }
     
     if (apikey.card_balance > 0) {
       callback();
+      res.jsonp("Sent!");
     }
   });  
 }

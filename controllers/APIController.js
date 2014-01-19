@@ -1,7 +1,7 @@
 var apikeysmodel = require('../models/APIKeysModel.js');
 
-exports.checkCardBalance = function(key, callback) {
-  apikeysmodel.checkCardCredits(key, callback);
+exports.checkCardBalance = function(key, res, callback) {
+  apikeysmodel.checkCardCredits(key, res, callback);
 }
 
 exports.makeAPIKey = function() {
