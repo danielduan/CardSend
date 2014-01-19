@@ -1,7 +1,7 @@
 //var lobkey = process.env.LOBKEY_TEST;
 var LOB = new (require('lob'))("test_151c1b8b627229d303c3a7fe5e6c6dc05e7");
 
-exports.sendPostCard = function(postcard, res, design) {
+exports.sendPostCard = function(postcard, res, design, callback) {
   var fronturl = "http://postasaservice.herokuapp.com/cards/";
   fronturl += design;
   postcard.front = fronturl;
@@ -13,6 +13,7 @@ exports.sendPostCard = function(postcard, res, design) {
       res.jsonp(error);
       return;
     }
+    callback();
     res.jsonp("Postcard sent!");
   });
 }
