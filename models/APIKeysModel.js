@@ -1,21 +1,3 @@
-// var Mongoose = require('mongoose');
-// var mongoUri = process.env.MONGOHQ_URL ||
-//   'mongodb://localhost/mydb';
-// Mongoose.connect(mongoUri);
-
-// var ObjectId = Mongoose.Schema.ObjectId;
-
-// var APIKeysSchema = new Mongoose.Schema({
-//   key: {
-//     type: ObjectId,
-//     required: true
-//   },
-//   card_balance: {
-//     type: Number,
-//     required: true
-//   }
-// });
-
 var Mongoose = require('mongoose');
 
 var db = Mongoose.connection;

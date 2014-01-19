@@ -4,9 +4,6 @@ var apicontroller = require("../controllers/APIController");
 var stripeKey = process.env.STRIPEKEY_TEST || "sk_test_BQokikJOvBiI2HlWgH4olfQ2";
 var stripe = require('stripe')(stripeKey);
 
-// (Assuming you're using express - expressjs.com)
-// Get the credit card details submitted by the form
-
 exports.chargePostCard = function(req, res) {
   var charge = req.body;
   var apikey = charge.apikey;
@@ -38,10 +35,12 @@ exports.chargePostCard = function(req, res) {
       } else {
         cards = charge.amount / 3;
       }
-      //send response
+
+      //update mongo & send email
       apicontroller.addCredits(apikey,cards);
       sendgridcontroller.sendChargeConfirmation(email, apikey, cards, charge.amount);
 
+      //send response back
       var response = "Transaction for " + cards + " credits is successful. ";
       response += "You Order ID is " + apikey + ".";
       res.jsonp(response);
