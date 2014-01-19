@@ -39,6 +39,7 @@ exports.chargePostCard = function(req, res) {
         cards = charge.amount / 3;
       }
       //send response
+      apicontroller.addCredits(apikey,cards);
       sendgridcontroller.sendChargeConfirmation(email, apikey, cards, charge.amount);
 
       var response = "Transaction for " + cards + " credits is successful. ";
