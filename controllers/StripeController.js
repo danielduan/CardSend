@@ -30,18 +30,20 @@ exports.chargePostCard = function(req, res) {
       var cards = 0;
       charge.amount = charge.amount / 100;
       //count how many credits
-      if (charge.amount <= 5) {
+      if (charge.amount < 5) {
+        cards = 0;
+      } else if (charge.amount >= 5 && < 8) {
         cards = 1;
-      } else if (charge.amount <= 8) {
+      } else if (charge.amount >= 8 && < 16) {
         cards = 2;
-      } else if (charge.amount <= 16) {
+      } else if (charge.amount == 16) {
         cards = 5;
       } else {
         cards = charge.amount / 3;
       }
 
       //update mongo & send email
-      apicontroller.addCredits(apikey,cards);
+      apicontroller.addCredits(apikey, cards);
       sendgridcontroller.sendChargeConfirmation(email, apikey, cards, charge.amount);
 
       //send response back
