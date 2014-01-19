@@ -14,9 +14,7 @@ exports.chargePostCard = function(req, res) {
   //no apikey, generate one
   if (!apikey || apikey == "") {
     apikey = apicontroller.makeAPIKey();
-    console.log("apikey " + apikey);
   }
-  console.log(charge.token, charge.amount);
 
   //create charge to LOB
   var chargestripe = stripe.charges.create({
@@ -32,27 +30,19 @@ exports.chargePostCard = function(req, res) {
       //count how many credits
       if (charge.amount <= 5) {
         cards = 1;
-        console.log('1 credit');
       } else if (charge.amount <= 8) {
         cards = 2;
-        console.log('2 credit');
       } else if (charge.amount <= 16) {
         cards = 5;
-        console.log('5 credit');
       } else {
         cards = charge.amount / 3;
-        console.log(cards);
       }
       //send response
       var response = "Charge for " + cards + "credits successful. ";
       response += "You Order ID is " + apikey + ".";
-      console.log(response);
       res.jsonp(response);
-      console.log("charge worked!");
     } else if (err) {
       res.jsonp(err.message);
-      console.log("charge error");
-      console.log(err);
     }
   });
 }
