@@ -9,7 +9,7 @@ exports.sendPostCard = function(postcard, res, design) {
     if (err) {
       res.jsonp(err);
     } else {
-      res.jsonp(res);
+      res.jsonp(response);
     }
   });
 }
