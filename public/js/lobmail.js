@@ -36,13 +36,19 @@ jQuery(function($) {
       jsonp: "json",
       dataType: 'json', // Pay attention to the dataType/contentType
       success: function (data) {
-        if (data[0].message != null) {
+        if (data[0].message) {
           $("#response").css("color", "red");
           $("#response").text(data);
-        } else {
+        } else if (data[0].object) {
           $("#response").css("color", "green");
           var message = data[0].object + " " + data[0].status;
           $("#response").text(message);
+        } else if (data) {
+          $("#response").css("color", "red");
+          $("#response").text(data);
+        } else {
+          $("#response").css("color", "red");
+          $("#response").text("Error");
         }
         console.log(data);
         $('#send-card-button').attr("href", "");
