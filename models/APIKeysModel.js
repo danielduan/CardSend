@@ -52,7 +52,7 @@ exports.addCardCredit = function(key, credits) {
   });
 }
 
-exports.getCredits = function(key) {
+exports.getCardCredits = function(key) {
   APIKey.findOne({key:key}, function (err, apikey) {
     if (err) {
       return console.log(err);
@@ -61,13 +61,13 @@ exports.getCredits = function(key) {
   });
 }
 
-exports.useCredits = function(key, credits) {
+exports.useCardCredits = function(key, credits) {
   APIKey.findOne({key:key}, function (err, apikey) {
     if (err) {
       return console.log(err);
     }
     //console.log(apikey);
-    apikey.card_balance -= apikey;
+    apikey.card_balance -= credits;
     apikey.save(function(err, apikey) {
       if (err) {
         return console.log(err);
@@ -77,6 +77,16 @@ exports.useCredits = function(key, credits) {
   });
 }
 
-
+exports.checkCardCredits = function(key, callback) {
+  APIKey.findOne({key:key}, function (err, apikey) {
+    if (err) {
+      return console.log(err);
+    }
+    
+    if (apikey.card_balance > 0) {
+      callback();
+    }
+  });  
+}
 
 
