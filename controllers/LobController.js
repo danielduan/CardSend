@@ -6,6 +6,7 @@ exports.sendPostCard = function(postcard, res, design) {
   fronturl += design;
   postcard.front = fronturl;
   LOB.postcards.create(postcard, function(err, response) {
+    console.log("sending card");
     if (err) {
       res.jsonp(err);
       return;
