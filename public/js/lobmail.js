@@ -39,7 +39,7 @@ jQuery(function($) {
         if (data[0].message) {
           $("#response").css("color", "red");
           $("#response").text(data);
-        } else if (data[0].object) {
+        } else if (data[0].status) {
           $("#response").css("color", "green");
           var message = data[0].object + " " + data[0].status;
           $("#response").text(message);
