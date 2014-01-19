@@ -16,14 +16,10 @@ exports.makeAPIKey = function() {
     key += possible.charAt(Math.floor(Math.random() * possible.length));
   }
   apikeysmodel.addNewKey(key);
-  //still need to check if key exists, highly doubt it
+  //still need to check if key exists, highly doubt it tho
   return key;
 }
 
 exports.addCredits = function(apikey, credits) {
   apikeysmodel.addCardCredit(apikey, credits);
-//   db.findOne({key: apikey }, function (err, account) {
-//   account.card_balance += credits;
-//   account.save(callback);
-// });
 }
