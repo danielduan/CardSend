@@ -39,6 +39,7 @@ exports.chargePostCard = function(req, res) {
         cards = charge.amount / 3;
       }
       //send response
+      console.log("CHARGE!!!!!!");
       console.log(charge);
       sendgridcontroller.sendChargeConfirmation(charge.email, apikey, cards, charge.amount);
 
