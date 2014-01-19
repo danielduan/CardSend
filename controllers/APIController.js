@@ -13,7 +13,7 @@ exports.makeAPIKey = function() {
   var key = "";
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   for( var i=0; i < 16; i++ ) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
+    key += possible.charAt(Math.floor(Math.random() * possible.length));
   }
   apikeysmodel.addNewKey(key);
   //still need to check if key exists, highly doubt it
