@@ -14,6 +14,7 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-desktop.css" />
 		</noscript>
+		<link rel="stylesheet" href="css/overrides.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 		<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css" /><![endif]-->
@@ -187,6 +188,9 @@
 											</div>
 										</div>
 
+										<div class="row half">
+											<div class="12u">
+												<input type="text" name="orderid" id="orderid" placeholder="Already purchased from us? Enter your previous Order ID. (optional)" />
 											</div>
 										</div>
 
@@ -206,13 +210,7 @@
 										</div>
 										<div class="row" style="text-align:center">
 											<div class="12u">
-												<span id="response">Response</span>
-											</div>
-										</div>
-										<div class="row half">
-											<div class="12u">
-												<p>Already purchased from us? Enter your previous Order ID to buy additional cards:</p>	
-												<input type="text" name="orderid" id="orderid" placeholder="Order ID" />
+												<span id="response"> </span>
 											</div>
 										</div>
 										<div class="row">
@@ -240,5 +238,6 @@
 	<script src="js/config.js"></script>
 	<script src="js/skel.min.js"></script>
 	<script src="js/validate.js"></script>
+	<script src="js/stripepayment.js"></script>
 	</body>
 </html>

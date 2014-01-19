@@ -1,26 +1,48 @@
+var apicontroller = require("../controllers/APIController");
+
 var stripeKey = process.env.STRIPEKEY_TEST || "sk_test_BQokikJOvBiI2HlWgH4olfQ2";
 var stripe = require('stripe')(stripeKey);
 
 // (Assuming you're using express - expressjs.com)
 // Get the credit card details submitted by the form
 
+exports.chargePostCard = function(req, res) {
+  var charge = req.body;
+  var apikey = charge.apikey;
+  charge.amount = parseInt(charge.amount);
 
-exports.chargePostCard = function(stripeToken, amount) {
-  var stripeToken = request.body.stripeToken;
-  var charge = stripe.charges.create({
-    amount: amount * 100, // amount in cents, again
+  //no apikey, generate one
+  if (!apikey || apikey == "") {
+    apikey = apicontroller.makeAPIKey();
+  }
+
+  //create charge to LOB
+  var chargestripe = stripe.charges.create({
+    amount: charge.amount * 100, // amount in cents, again
     currency: "usd",
-    card: stripeToken,
-    description: "PostaaS Postcard Credits"
+    card: charge.token,
+    description: "PostaaS Order " + apikey,
   }, function(err, charge) {
+    console.log(err, charge);
     if (charge) {
-      console.log("charge worked!");
-      return charge;
+      var cards = 0;
+      charge.amount = charge.amount / 100;
+      //count how many credits
+      if (charge.amount <= 5) {
+        cards = 1;
+      } else if (charge.amount <= 8) {
+        cards = 2;
+      } else if (charge.amount <= 16) {
+        cards = 5;
+      } else {
+        cards = charge.amount / 3;
+      }
+      //send response
+      var response = "Charge for " + cards + "credits successful. ";
+      response += "You Order ID is " + apikey + ".";
+      res.jsonp(response);
     } else if (err) {
-      var result = {};
-      result.object = "error";
-      result.err = err;
-      return result;
+      res.jsonp(err.message);
     }
   });
 }
