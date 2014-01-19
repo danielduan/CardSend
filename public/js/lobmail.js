@@ -38,11 +38,10 @@ jQuery(function($) {
       success: function (data) {
         if (data.error) {
           $("#response").css("color", "red");
-          $("#response").text(data);
+          $("#response").text(data.error);
         } else if (data.success) {
           $("#response").css("color", "green");
-          var message = data.success;
-          $("#response").text(message);
+          $("#response").text(data.success);
         } else if (data) {
           $("#response").css("color", "red");
           $("#response").text(data);
