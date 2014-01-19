@@ -32,13 +32,14 @@ jQuery(function($) {
         type: 'POST',
         url: "/paas/recharge",
         data: {
-          apikey: $('#orderid').val();
+          apikey: $('#orderid').val(),
           token: token,
-          amount: $("#selection").attr("cost");
+          amount: $("#selection").attr("cost"),
         },
         jsonp: "json",
         dataType: 'json', // Pay attention to the dataType/contentType
         success: function (data) {
+          console.log(data);
           $("#response").text(data);
         }
       });
