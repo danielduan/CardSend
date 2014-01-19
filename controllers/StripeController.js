@@ -42,7 +42,8 @@ exports.chargePostCard = function(req, res) {
 
       //send response back
       var response = "Transaction for " + cards + " credits is successful. ";
-      response += "You Order ID is " + apikey + ".";
+      response += "You Order ID is " + apikey + ". ";
+      response += "You are now ready to design your postcards.";
       res.jsonp(response);
     } else if (err) {
       res.jsonp(err.message);
