@@ -27,7 +27,7 @@ function validatePayment () {
 	if ($("#cvc").val().length != 3 && $("#cvc").val().length != 4) {
 		return "Invalid CVC.";
 	}
-	if (parseInt($("#expirationmonth").val()) < 1 || parseInt($("#expirationmonth").val()) > 12 {
+	if (parseInt($("#expirationmonth").val()) < 1 || parseInt($("#expirationmonth").val()) > 12) {
 		return "Invalid month.";
 	}
 	var d = new Date();
