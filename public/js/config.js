@@ -57,32 +57,57 @@ $(function() {
 	$("#card-confirm-dialog").hide();
 	$("#choice-thanks").click(function() {
 		$("#selection-image").html('<img src="images/thanks.png" alt="" />');
-		$("#selection").text('"Thank you!"');
-		$("#selection").attr("card-type", "thanks");
+		$("#selection").attr("card-type", "thanks.pdf");
 		$("#card-confirm-dialog").show();
 	});
 
 	$("#card-confirm-dialog").hide();
 	$("#choice-ily").click(function() {
 		$("#selection-image").html('<img src="images/love.png" alt="" />');
-		$("#selection").text('"I love you!"');
-		$("#selection").attr("card-type", "ily");
+		$("#selection").attr("card-type", "love.pdf");
 		$("#card-confirm-dialog").show();
 	});
 
 	$("#card-confirm-dialog").hide();
 	$("#choice-getwell").click(function() {
 		$("#selection-image").html('<img src="images/getwell.png" alt="" />');
-		$("#selection").text('"Get well!"');
-		$("#selection").attr("card-type", "getwell");
+		$("#selection").attr("card-type", "getwell.pdf");
 		$("#card-confirm-dialog").show();
 	});
 
 	$("#card-confirm-dialog").hide();
 	$("#choice-hbd").click(function() {
 		$("#selection-image").html('<img src="images/birthday.png" alt="" />');
-		$("#selection").text('"Happy B-day!"');
-		$("#selection").attr("card-type", "hbd");
+		$("#selection").attr("card-type", "birthday.pdf");
+		$("#card-confirm-dialog").show();
+	});
+
+		$("#card-confirm-dialog").hide();
+	$("#choice-glb").click(function() {
+		$("#selection-image").html('<img src="images/goodluckBAD.png" alt="" />');
+		$("#selection").attr("card-type", "goodluckBAD.pdf");
+		$("#card-confirm-dialog").show();
+	});
+
+	$("#card-confirm-dialog").hide();
+	$("#choice-cute").click(function() {
+		$("#selection-image").html('<img src="images/cute.png" alt="" />');
+		$("#selection").attr("card-type", "cute.pdf");
+		$("#card-confirm-dialog").show();
+	});
+
+	$("#card-confirm-dialog").hide();
+	$("#choice-congrats").click(function() {
+		$("#selection-image").html('<img src="images/congratsBAD.png" alt="" />');
+		$("#selection").attr("card-type", "congratsBAD.pdf");
+		$("#card-confirm-dialog").show();
+	});
+
+	$("#card-confirm-dialog").hide();
+	$("#choice-fsck").click(function() {
+		$("#selection-image").html('<img src="images/fsck.png" alt="" />');
+		$("#selection").text('=)');
+		$("#selection").attr("card-type", "fsck.pdf");
 		$("#card-confirm-dialog").show();
 	});
 });
