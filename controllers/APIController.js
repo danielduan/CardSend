@@ -16,9 +16,9 @@ exports.makeAPIKey = function() {
 }
 
 exports.addCredits = function(apikey, credits) {
-  apikeysmodel.addCardCredit(apikey, credits);
+  apikeysmodel.addCardCredits(apikey, credits);
 }
 
 exports.useCredits = function(apikey, credits) {
-  apikeysmodel.useCardCredit(apikey, credits);
+  apikeysmodel.useCardCredits(apikey, credits);
 }

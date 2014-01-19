@@ -36,7 +36,7 @@ exports.addNewKey = function(key) {
   })
 }
 
-exports.addCardCredit = function(key, credits) {
+exports.addCardCredits = function(key, credits) {
   APIKey.findOne({key:key}, function (err, apikey) {
     if (err) {
       return console.log(err);
@@ -68,6 +68,7 @@ exports.useCardCredits = function(key, credits) {
     }
     //console.log(apikey);
     apikey.card_balance -= credits;
+    console.log(apikey.card_balance);
     apikey.save(function(err, apikey) {
       if (err) {
         return console.log(err);
