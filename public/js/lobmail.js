@@ -32,6 +32,6 @@ jQuery(function($) {
         $('#send-card-button').attr("href", "");
       }
     });
-  }
+  });
 });
 
