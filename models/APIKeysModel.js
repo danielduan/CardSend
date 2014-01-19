@@ -23,7 +23,7 @@ var APIKeysSchema = new Mongoose.Schema({
 
 var APIKey = Mongoose.model('APIKeys', APIKeysSchema);
 
-exports.addNewKey = function(key) {
+exports.addNewKey = function(key, callback, res) {
   var apikey = new APIKey({
     key: key,
     card_balance: 0,
@@ -32,6 +32,7 @@ exports.addNewKey = function(key) {
     if (err) {
       return console.log(err);
     }
+    callback(apikey, res);
     //console.log(apikey);
   })
 }

@@ -22,10 +22,6 @@ exports.chargePostCard = function(req, res) {
     description: "PostaaS Order " + apikey,
   }, function(err, charge) {
     if (charge) {
-      //no apikey, generate one
-      if (!apikey || apikey == "") {
-        apikey = apicontroller.makeAPIKey();
-      }
 
       var cards = 0;
       charge.amount = charge.amount / 100;
@@ -42,15 +38,28 @@ exports.chargePostCard = function(req, res) {
         cards = charge.amount / 3;
       }
 
-      //update mongo & send email
-      apicontroller.addCredits(apikey, cards);
-      sendgridcontroller.sendChargeConfirmation(email, apikey, cards, charge.amount);
-
-      //send response back
-      var response = "Transaction for " + cards + " credits is successful. ";
-      response += "You Order ID is " + apikey + ". ";
-      response += "You are now ready to design your postcards.";
-      res.jsonp(response);
+      //no apikey, generate one
+      if (!apikey || apikey == "") {
+        var callback = function(apikey, res) {
+          apicontroller.addCredits(apikey, cards);
+          sendgridcontroller.sendChargeConfirmation(email, apikey, cards, charge.amount);
+          //send response back
+          var response = "Transaction for " + cards + " credits is successful. ";
+          response += "You Order ID is " + apikey + ". ";
+          response += "You are now ready to design your postcards.";
+          res.jsonp(response);
+        };
+        apikey = apicontroller.makeAPIKey(callback,res);
+      } else {
+        //update mongo & send email
+        apicontroller.addCredits(apikey, cards);
+        sendgridcontroller.sendChargeConfirmation(email, apikey, cards, charge.amount);
+        //send response back
+        var response = "Transaction for " + cards + " credits is successful. ";
+        response += "You Order ID is " + apikey + ". ";
+        response += "You are now ready to design your postcards.";
+        res.jsonp(response);
+      }
     } else if (err) {
       res.jsonp(err.message);
     }

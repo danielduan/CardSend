@@ -4,13 +4,13 @@ exports.checkCardBalance = function(key, res, callback) {
   apikeysmodel.checkCardCredits(key, res, callback);
 }
 
-exports.makeAPIKey = function() {
+exports.makeAPIKey = function(callback, res) {
   var key = "";
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   for( var i=0; i < 16; i++ ) {
     key += possible.charAt(Math.floor(Math.random() * possible.length));
   }
-  apikeysmodel.addNewKey(key);
+  apikeysmodel.addNewKey(key, callback, res);
   //still need to check if key exists, highly doubt it tho
   return key;
 }
