@@ -32,7 +32,7 @@ exports.addNewKey = function(key, callback, res) {
     if (err) {
       return console.log(err);
     }
-    callback(apikey, res);
+    callback(key, res);
     //console.log(apikey);
   })
 }
