@@ -25,7 +25,6 @@ exports.chargePostCard = function(req, res) {
     card: charge.token,
     description: "PostaaS Order " + apikey,
   }, function(err, charge) {
-    console.log(err, charge);
     if (charge) {
       var cards = 0;
       charge.amount = charge.amount / 100;
@@ -40,8 +39,6 @@ exports.chargePostCard = function(req, res) {
         cards = charge.amount / 3;
       }
       //send response
-      console.log("CHARGE!!!!!!");
-      console.log(charge);
       sendgridcontroller.sendChargeConfirmation(email, apikey, cards, charge.amount);
 
       var response = "Transaction for " + cards + " credits is successful. ";
