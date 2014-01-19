@@ -14,6 +14,8 @@ exports.sendPostCard = function(postcard, res, design, callback) {
       return;
     }
     callback();
-    res.jsonp("Postcard sent!");
+    var response = {};
+    response.success = "Postcard sent!";
+    res.jsonp(response);
   });
 }
