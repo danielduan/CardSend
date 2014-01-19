@@ -43,6 +43,36 @@
 						<div class="12u">
 						</div>
 					</div>
+
+					<!-- Normal choices -->
+					<div class="row">
+						<div class="3u">
+							<article class="box box-style2">
+								<div class="image image-full"><img src="images/thanks.png" alt="" /></div>
+								<a href="#address" name="choice-thanks" id="choice-thanks" class="button button-small">Choose</a>
+							</article>
+						</div>
+						<div class="3u">
+							<article class="box box-style2">
+								<div class="image image-full"><img src="images/love.png" alt="" /></div>
+								<a href="#address" name="choice-ily" id="choice-ily" class="button button-small">Choose</a>
+							</article>
+						</div>
+						<div class="3u">
+							<article class="box box-style2">
+								<div class="image image-full"><img src="images/getwell.png" alt="" /></div>
+								<a href="#address" name="choice-getwell" id="choice-getwell" class="button button-small">Choose</a>
+							</article>
+						</div>
+						<div class="3u">
+							<article class="box box-style2">
+								<div class="image image-full"><img src="images/birthday.png" alt="" /></div>
+								<a href="#address" name="choice-hbd" id="choice-hbd" class="button button-small">Choose</a>
+							</article>
+						</div>
+					</div>
+					
+					<!-- Parody choices -->
 					<div class="row">
 						<div class="3u">
 							<article class="box box-style2">
@@ -80,16 +110,27 @@
 									<p>If you have made your decision, proceed to purchase; otherwise choose another postcard.</p>
 							</section>
 						</header>
-						<div class="row">
-							<br><br>	
-							<div class="6u">
-								<h3>To:</h3>
-								</div>
-							<div class="6u">
-								<h3>From:</h3>
-								</div>
-						</div>
 						<form name="address_info" >
+							<div class="row half">
+								<div class="6u">
+									<br>
+									<h3>Redeem Order ID:</h3>
+									<input type="text" name="orderid" id="orderid" placeholder="Order ID" />
+								</div>
+								<div class="6u">
+									<br>
+									<h3>Don't have an Order ID?</h3>
+									<a href="index.html#options" name="buy-more" id="buy-more" class="button button-small">Buy Cards Now!</a>
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u">
+									<h3>To:</h3>
+									</div>
+								<div class="6u">
+									<h3>From:</h3>
+								</div>
+							</div>
 							<div class="row half">
 								<div class ="6u" id = "to" class = "toAddress">
 									<input type="text" name="to_name" id="to_name" placeholder="Full Name">
@@ -132,11 +173,7 @@
 								<textarea maxlength="300" name="message" placeholder="Type your message here! Limit to 300 characters."></textarea>
 								<span id="limit-warning"></span>
 							</div>
-							<div class="12u">
-								<br>
-								<h3>Redeem Order ID:</h3>
-								<input type="text" name="orderid" id="orderid" placeholder="Order ID" />
-							</div>
+
 						</form>
 						<br><br>
 						<a href="" class="button form-button-submit" id="send-card-button" >Send your postcard now!</a>

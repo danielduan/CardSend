@@ -17,6 +17,7 @@ window._skel_config = {
 	}
 };
 
+// pricing options
 $(function() {
 	$("#confirm-dialog").hide();
 	$("#purchase-button1").click(function() {
@@ -51,6 +52,7 @@ $(function() {
 	});	
 });
 
+// card options
 $(function() {
 	$("#card-confirm-dialog").hide();
 	$("#choice-thanks").click(function() {
