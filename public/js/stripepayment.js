@@ -1,4 +1,4 @@
-Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+Stripe.setPublishableKey('pk_test_kepNvExthwHXJBDoCimv67KA');
 
 jQuery(function($) {
   $('#payment-submit').click(function(event) {
@@ -19,7 +19,6 @@ jQuery(function($) {
     $("#response").text("Submitting payment...");
     $("#response").css("color", "green");
   });
-
 
   var stripeResponseHandler = function(status, response) {
     var $form = $('#payment-form'); 

@@ -10,6 +10,7 @@ var stripe = require('stripe')(stripeKey);
 exports.chargePostCard = function(req, res) {
   var charge = req.body;
   var apikey = charge.apikey;
+  var email = charge.email;
   charge.amount = parseInt(charge.amount);
 
   //no apikey, generate one
@@ -24,7 +25,6 @@ exports.chargePostCard = function(req, res) {
     card: charge.token,
     description: "PostaaS Order " + apikey,
   }, function(err, charge) {
-    console.log(err, charge);
     if (charge) {
       var cards = 0;
       charge.amount = charge.amount / 100;
@@ -39,7 +39,7 @@ exports.chargePostCard = function(req, res) {
         cards = charge.amount / 3;
       }
       //send response
-      sendgridcontroller.sendChargeConfirmation(charge.email, apikey, cards, charge.amount);
+      sendgridcontroller.sendChargeConfirmation(email, apikey, cards, charge.amount);
 
       var response = "Transaction for " + cards + " credits is successful. ";
       response += "You Order ID is " + apikey + ".";

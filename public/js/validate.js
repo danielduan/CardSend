@@ -31,7 +31,7 @@ function validatePayment () {
 		return "Invalid month.";
 	}
 	var d = new Date();
-	if (parseInt($("#expirationyear").val()) > d.getFullYear()) {
+	if (parseInt($("#expirationyear").val()) < d.getFullYear()) {
 		return "Credit card expired.";
 	}
 
