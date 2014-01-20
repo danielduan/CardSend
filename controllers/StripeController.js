@@ -1,7 +1,7 @@
 var sendgridcontroller = require("../controllers/SendGridController.js");
 var apicontroller = require("../controllers/APIController");
 
-var stripeKey = process.env.STRIPEKEY_TEST || "sk_test_BQokikJOvBiI2HlWgH4olfQ2";
+var stripeKey = process.env.STRIPEKEY_LIVE || "sk_test_BQokikJOvBiI2HlWgH4olfQ2";
 var stripe = require('stripe')(stripeKey);
 
 exports.chargePostCard = function(req, res) {
