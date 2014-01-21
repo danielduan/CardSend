@@ -20,7 +20,7 @@ var allowCrossDomain = function(req, res, next) {
 
 // all environments
 app.set('port', process.env.PORT || 3000);
-app.use(express.favicon(__dirname + "public/images/favicon.ico"));
+app.use(express.favicon(path.join(__dirname, 'public/images/favicon.ico');
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -36,6 +36,7 @@ if ('development' == app.get('env')) {
 //card send v1
 app.get('/api/v1/card/balance', APIv1Routes.cardbalance);
 app.post('/api/v1/card/send', APIv1Routes.sendcard);
+
 app.post('/paas/recharge', PaaSRoutes.chargecardbalance);
 
 
