@@ -10,7 +10,7 @@ exports.createDocument = function(req, res) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
 
-  var image = "../tmp/" + text + ".jpg";
+  var image = "../tmp/" + text + ".png";
 
   fs.writeFile(image, new Buffer(req.body.image, "base64"), function (err) {
     if (err) throw err;
