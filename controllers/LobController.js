@@ -19,3 +19,20 @@ exports.sendPostCard = function(postcard, res, design, callback) {
     res.jsonp(response);
   });
 }
+
+exports.sendCustomPostCard = function(postcard, res, design, callback) {
+  postcard.front = design;
+  LOB.postcards.create(postcard, function(err, response) {
+    console.log("sending card");
+    if (err) {
+      var error = {};
+      error.err = err[0].message;
+      res.jsonp(error);
+      return;
+    }
+    callback();
+    var response = {};
+    response.success = "Postcard sent!";
+    res.jsonp(response);
+  });
+}
