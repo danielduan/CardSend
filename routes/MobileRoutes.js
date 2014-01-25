@@ -1,5 +1,6 @@
 var apicontroller = require("../controllers/APIController");
 var lobcontroller = require("../controllers/LobController");
+var pdfkitcontroller = require("../controllers/pdfkitcontroller");
 var sendgridcontroller = require("../controllers/SendGridController.js");
 
 // gets remaining postcards
@@ -14,6 +15,10 @@ exports.cardbalance = function(req, res) {
   };
   response = JSON.stringify(response);
   res.send(response);
+}
+
+exports.createPDF = function(req, res) {
+  pdfkitcontroller.createDocument(req, res);
 }
 
 // send postcards
