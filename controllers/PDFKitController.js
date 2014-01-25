@@ -1,5 +1,5 @@
 var PDFDocument = require('pdfkit');
-var fs = require 'fs';
+var fs = require('fs');
 
 exports.createDocument = function(req, res) {
   
