@@ -14,9 +14,10 @@ exports.sendPostCard = function(postcard, res, design, callback) {
       return;
     }
     callback();
-    var response = {};
-    response.success = "Postcard sent!";
-    res.jsonp(response);
+    var resp = {};
+    resp.success = "Postcard sent!";
+    resp.id = response.id;
+    res.jsonp(resp);
   });
 }
 
@@ -31,8 +32,9 @@ exports.sendCustomPostCard = function(postcard, res, design, callback) {
       return;
     }
     callback();
-    var response = {};
-    response.success = "Postcard sent!";
-    res.jsonp(response);
+    var resp = {};
+    resp.success = "Postcard sent!";
+    resp.id = response.id;
+    res.jsonp(resp);
   });
 }
