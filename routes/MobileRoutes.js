@@ -1,6 +1,6 @@
 var apicontroller = require("../controllers/APIController");
 var lobcontroller = require("../controllers/LobController");
-var pdfkitcontroller = require("../controllers/pdfkitcontroller");
+var pdfkitcontroller = require("../controllers/PDFKitController");
 var sendgridcontroller = require("../controllers/SendGridController.js");
 
 // gets remaining postcards
