@@ -1,6 +1,7 @@
 var express = require('express')
   , APIv1Routes = require('./routes/APIv1Routes.js')
   , PaaSRoutes = require('./routes/PaaSRoutes.js')
+  , MobileRoutes = require('./routes/MobileRoutes.js')
   , http = require('http')
   , path = require('path');
 
