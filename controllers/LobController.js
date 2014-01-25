@@ -2,7 +2,7 @@
 var LOB = new (require('lob'))(process.env.LOBKEY_TEST);
 
 exports.sendPostCard = function(postcard, res, design, callback) {
-  var fronturl = "http://ampaas.herokuapp.com/cards/";
+  var fronturl = "http://cardsend.herokuapp.com/cards/";
   fronturl += design;
   postcard.front = fronturl;
   LOB.postcards.create(postcard, function(err, response) {
