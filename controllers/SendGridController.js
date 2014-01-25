@@ -19,7 +19,7 @@ exports.sendChargeConfirmation = function(email, key, credits, price){
 
 };
 
-exports.sendEmailCard = function(email, to_name, from_name, callback){
+exports.sendEmailCard = function(email, to_name, to_name, res){
   var message = "Hi " + to_name + "! Here is your postcard. -" + from_name;
 
   sendgrid.send({
@@ -28,13 +28,10 @@ exports.sendEmailCard = function(email, to_name, from_name, callback){
     subject: 'PostaCard Order Confirmation',
     text: message
   }, function(err, json) {
-  if (err) {
-    var response = {};
-    response.success = "Postcard sent!";
-    res.jsonp(response);
-  }
-  callback();
+  if (err) { return console.error(err); }
     console.log(json);
   });
-
+  var response = {};
+    response.success = "Postcard sent!";
+    res.jsonp(response);
 };
