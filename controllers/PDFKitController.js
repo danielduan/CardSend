@@ -10,7 +10,7 @@ exports.createDocument = function(req, res) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
 
-  var image = "../public/temp/" + text + ".jpg";
+  var image = "../tmp/" + text + ".jpg";
 
   fs.writeFile(image, new Buffer(req.body.image, "base64"), function (err) {
     if (err) throw err;
@@ -26,7 +26,7 @@ exports.createDocument = function(req, res) {
 
   doc.image(image, 100, 100).text('Full size', 100, 85);
 
-  var file = "../public/temp/" + text + ".pdf";
+  var file = "../tmp/" + text + ".pdf";
 
   doc.write(file);
   res.jsonp({pdf:file});

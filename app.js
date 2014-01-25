@@ -28,6 +28,7 @@ app.use(express.methodOverride());
 app.use(allowCrossDomain);
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'tmp')));
 
 // development only
 if ('development' == app.get('env')) {
