@@ -49,3 +49,11 @@ exports.sendcard = function(req, res) {
     });
   });
 }
+
+exports.sendemail = function(req, res) {
+  apicontroller.checkCardBalance(req.body.apikey, res, function(){
+    sendgrid.sendEmailCard(req.body.to_email, req.body.to_name, req.body.from_name, function(){
+      apicontroller.useCredits(req.body.apikey, 1);
+    });
+  });
+}

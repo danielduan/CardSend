@@ -38,6 +38,7 @@ app.get('/api/v1/card/balance', APIv1Routes.cardbalance);
 app.post('/api/v1/card/send', APIv1Routes.sendcard);
 
 app.post('/mobile/v1/card/send', MobileRoutes.sendcard);
+app.post('/mobile/v1/email/send', MobileRoutes.sendemail);
 
 app.post('/paas/recharge', PaaSRoutes.chargecardbalance);
 

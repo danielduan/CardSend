@@ -9,8 +9,23 @@ exports.sendChargeConfirmation = function(email, key, credits, price){
 
   sendgrid.send({
     to: email,
-    from: 'order@ampaas.herokuapp.com',
-    subject: 'AmpaaS Order Confirmation',
+    from: 'order@cardsend.herokuapp.com',
+    subject: 'CardSend Order Confirmation',
+    text: message
+  }, function(err, json) {
+  if (err) { return console.error(err); }
+    console.log(json);
+  });
+
+};
+
+exports.sendEmailCard = function(email, to_name, from_name){
+  var message = "Hi " + to_name + "! Here is your postcard. -" + from_name;
+
+  sendgrid.send({
+    to: email,
+    from: 'order@postacard.herokuapp.com',
+    subject: 'PostaCard Order Confirmation',
     text: message
   }, function(err, json) {
   if (err) { return console.error(err); }
