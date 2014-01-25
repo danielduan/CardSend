@@ -12,7 +12,7 @@ exports.createDocument = function(req, res) {
 
   var image = "../public/temp/" + text + ".jpg";
 
-  fs.writeFile(image, new Buffer(request.body.image, "base64"), function (err) {
+  fs.writeFile(image, new Buffer(req.body.image, "base64"), function (err) {
     if (err) throw err;
     console.log('It\'s saved!');
   });
