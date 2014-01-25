@@ -1,5 +1,6 @@
 var apicontroller = require("../controllers/APIController");
 var lobcontroller = require("../controllers/LobController");
+var sendgridcontroller = require("../controllers/SendGridController.js");
 
 // gets remaining postcards
 // /api/v1/card/balance?key=_APIKEY_
