@@ -85,7 +85,7 @@ exports.checkCardCredits = function(key, res, callback) {
       res.jsonp(err);
       return console.log(err);
     }
-    
+    console.log(apikey);
     if (apikey.card_balance > 0) {
       callback();
     } else {
