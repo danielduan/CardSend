@@ -19,7 +19,7 @@ exports.sendChargeConfirmation = function(email, key, credits, price){
 
 };
 
-exports.sendEmailCard = function(email, to_name, to_name, res){
+exports.sendEmailCard = function(email, to_name, from_name, res){
   var message = "Hi " + to_name + "! Here is your postcard. -" + from_name;
 
   sendgrid.send({
