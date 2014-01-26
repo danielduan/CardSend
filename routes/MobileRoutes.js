@@ -18,15 +18,24 @@ exports.cardbalance = function(req, res) {
 }
 
 exports.createPDF = function(req, res) {
-  var bufs = [];
-  req.on('data', function(d){
-    bufs.push(d);
-    console.log("receiving");
+  var data = new Buffer('');
+  req.on('data', function(chunk) {.
+    data = Buffer.concat([data, chunk]);
   });
-  req.on('end', function(){
-    var buf = Buffer.concat(bufs);
-    pdfkitcontroller.createDocument(buf, res);
+  req.on('end', function() {
+    req.rawBody = data;
+    pdfkitcontroller.createDocument(req.rawBody, res);
   });
+
+  // var bufs = [];
+  // req.on('data', function(d){
+  //   bufs.push(d);
+  //   console.log("receiving");
+  // });
+  // req.on('end', function(){
+  //   var buf = Buffer.concat(bufs);
+  //   pdfkitcontroller.createDocument(buf, res);
+  // });
 }
 
 // send postcards
