@@ -13,6 +13,8 @@ exports.createDocument = function(req, res) {
   //var image = "../tmp/" + text + ".png";
   var image = "../tmp/" + text + ".png";
 
+  console.log(image);
+  
   fs.writeFile(image, new Buffer(req.body.image, "base64"), function (err) {
     if (err) throw err;
     console.log('It\'s saved!');
@@ -30,6 +32,5 @@ exports.createDocument = function(req, res) {
   var file = "../tmp/" + text + ".pdf";
 
   doc.write(file);
-  console.log(file);
   res.jsonp({pdf:file});
 }
