@@ -14,7 +14,7 @@ exports.createDocument = function(req, res) {
   }
 
   var doc = new PDFDocument({
-    size: [432,288],
+    size: [288,432],
     layout: 'landscape'
   });
   // doc.addPage({
