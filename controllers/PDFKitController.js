@@ -14,17 +14,13 @@ exports.createDocument = function(req, res) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
 
-
-
-  //var image = "../tmp/" + text + ".png";
-  //var image = "../tmp/" + text + ".png";
-
   console.log(text);
 
-  // fs.writeFile(image, new Buffer(req.body.image, "base64"), function (err) {
-  //   if (err) throw err;
-  //   console.log('It\'s saved!');
-  // });
+  var doc = new PDFDocument();
+  doc.addPage({
+    size: [432,288],
+    layout: 'landscape'
+  });
 
   var s3bucket = new AWS.S3({params: {Bucket: 'postacard-heroku'}});
   s3bucket.createBucket(function() {
@@ -33,24 +29,29 @@ exports.createDocument = function(req, res) {
       if (err) {
         console.log("Error uploading data: ", err);
       } else {
-        console.log("Successfully uploaded data to myBucket/myKey");
+        console.log("Successfully uploaded img to myBucket/myKey");
+
+        var imgurl = "http://s3-us-west-2.amazonaws.com/postacard-heroku/" + text + ".jpg";
+        doc.image(imgurl, 100, 100).text('Full size', 100, 85);
+
+        doc.output(function(string) {
+          s3bucket.createBucket(function() {
+            var data = {Key: text + ".pdf", ACL:"public-read" , Body: string};
+            s3bucket.putObject(data, function(err, data) {
+              if (err) {
+                console.log("Error uploading data: ", err);
+              } else {
+                console.log("Successfully uploaded pdf to myBucket/myKey");
+
+                var pdfurl = "http://s3-us-west-2.amazonaws.com/postacard-heroku/" + text + ".pdf";
+                res.jsonp({pdf:pdfurl});
+              }
+            });
+          });
+        });
       }
     });
   });
 
 
-  var doc = new PDFDocument();
-  doc.addPage({
-    size: [432,288],
-    layout: 'landscape'
-  });
-
-  var imgurl = "http://s3-us-west-2.amazonaws.com/postacard-heroku/" + text + ".jpg";
-
-  doc.image(imgurl, 100, 100).text('Full size', 100, 85);
-
-  var file = "../tmp/" + text + ".pdf";
-
-  //doc.write(file);
-  res.jsonp({pdf:file});
 }
