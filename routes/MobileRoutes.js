@@ -18,6 +18,7 @@ exports.cardbalance = function(req, res) {
 }
 
 exports.createPDF = function(req, res) {
+  req.setEncoding('utf8');
   var data = new Buffer('');
   req.on('data', function(chunk) {
     data = Buffer.concat([data, chunk]);
