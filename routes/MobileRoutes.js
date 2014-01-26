@@ -17,17 +17,18 @@ exports.cardbalance = function(req, res) {
   res.send(response);
 }
 
-exports.createPDF = function(req, res, next) {
-  var data = new Buffer('');
-  res.on('data', function(chunk) {
-    data = Buffer.concat([data, chunk]);
-    console.log(receiving);
-  });
-  res.on('end', function() {
-    req.rawBody = data;
-    pdfkitcontroller.createDocument(req.rawBody, res);
-    next();
-  });
+exports.createPDF = function(req, res) {
+  pdfkitcontroller.createDocument(req, res);
+
+  // var data = new Buffer('');
+  // res.on('data', function(chunk) {
+  //   data = Buffer.concat([data, chunk]);
+  //   console.log(receiving);
+  // });
+  // res.on('end', function() {
+  //   req.rawBody = data;
+  //   pdfkitcontroller.createDocument(req.rawBody, res);
+  // });
 
   // var bufs = [];
   // req.on('data', function(d){

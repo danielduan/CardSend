@@ -13,8 +13,6 @@ exports.createDocument = function(req, res) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
 
-  console.log(text);
-
   var doc = new PDFDocument();
   doc.addPage({
     size: [432,288],
