@@ -17,7 +17,7 @@ exports.cardbalance = function(req, res) {
   res.send(response);
 }
 
-exports.createPDF = function(req, res) {
+exports.createPDF = function(req, res, next) {
   req.setEncoding('utf8');
   var data = new Buffer('');
   req.on('data', function(chunk) {
@@ -26,6 +26,7 @@ exports.createPDF = function(req, res) {
   req.on('end', function() {
     req.rawBody = data;
     pdfkitcontroller.createDocument(req.rawBody, res);
+    next();
   });
 
   // var bufs = [];
