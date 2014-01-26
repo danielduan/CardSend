@@ -18,7 +18,15 @@ exports.cardbalance = function(req, res) {
 }
 
 exports.createPDF = function(req, res) {
-  pdfkitcontroller.createDocument(req, res);
+  var bufs = [];
+  req.on('data', function(d){
+    bufs.push(d);
+    console.log("receiving");
+  });
+  req.on('end', function(){
+    var buf = Buffer.concat(bufs);
+    pdfkitcontroller.createDocument(buf, res);
+  });
 }
 
 // send postcards
