@@ -13,16 +13,19 @@ exports.createDocument = function(req, res) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
 
-  var doc = new PDFDocument();
-  doc.addPage({
+  var doc = new PDFDocument({
     size: [432,288],
     layout: 'landscape'
   });
+  // doc.addPage({
+  //   size: [432,288],
+  //   layout: 'landscape'
+  // });
 
 
     var s3bucket = new AWS.S3({params: {Bucket: 'postacard-heroku'}});
     console.log("post length " + req.body.image.length);
-    doc.image(new Buffer(req.body.image, "base64"), 100, 100).text('Full size', 100, 85);
+    doc.image(new Buffer(req.body.image, "base64"), 100, 100);
     doc.output(function(string) {
       s3bucket.createBucket(function() {
         var data = {Key: text + ".pdf", ACL:"public-read" , Body: string};
