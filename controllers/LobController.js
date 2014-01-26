@@ -23,6 +23,7 @@ exports.sendPostCard = function(postcard, res, design, callback) {
 
 exports.sendCustomPostCard = function(postcard, res, design, callback) {
   postcard.front = design;
+  console.log(postcard.front);
   LOB.postcards.create(postcard, function(err, response) {
     console.log("sending card");
     if (err) {
