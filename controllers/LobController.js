@@ -22,7 +22,7 @@ exports.sendPostCard = function(postcard, res, design, callback) {
 }
 
 exports.sendCustomPostCard = function(postcard, res, design, callback) {
-  postcard.front = design.substring(1,design.length-2);
+  postcard.front = design.substring(1,design.length-1);
   console.log(postcard);
   LOB.postcards.create(postcard, function(err, response) {
     console.log("sending card");
