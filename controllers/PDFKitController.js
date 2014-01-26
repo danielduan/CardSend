@@ -28,7 +28,7 @@ exports.createDocument = function(req, res) {
 
   var s3bucket = new AWS.S3({params: {Bucket: 'postacard-heroku'}});
   s3bucket.createBucket(function() {
-    var data = {Key: text + ".jpg", Body: new Buffer(req.body.image, "base64")};
+    var data = {Key: text + ".jpg", ACL:"public-read" , Body: new Buffer(req.body.image, "base64")};
     s3bucket.putObject(data, function(err, data) {
       if (err) {
         console.log("Error uploading data: ", err);
