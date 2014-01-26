@@ -45,10 +45,12 @@ exports.createDocument = function(req, res) {
     layout: 'landscape'
   });
 
-  doc.image(image, 100, 100).text('Full size', 100, 85);
+  var imgurl = "http://s3-us-west-2.amazonaws.com/postacard-heroku/" + text + ".jpg";
+
+  doc.image(imgurl, 100, 100).text('Full size', 100, 85);
 
   var file = "../tmp/" + text + ".pdf";
 
-  doc.write(file);
+  //doc.write(file);
   res.jsonp({pdf:file});
 }
