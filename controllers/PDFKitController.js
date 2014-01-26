@@ -19,7 +19,7 @@ exports.createDocument = function(req, res) {
   //var image = "../tmp/" + text + ".png";
   //var image = "../tmp/" + text + ".png";
 
-  console.log(image);
+  console.log(text);
 
   // fs.writeFile(image, new Buffer(req.body.image, "base64"), function (err) {
   //   if (err) throw err;
