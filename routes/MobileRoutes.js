@@ -18,12 +18,13 @@ exports.cardbalance = function(req, res) {
 }
 
 exports.createPDF = function(req, res, next) {
-  req.setEncoding('utf8');
+  res.setEncoding('utf8');
   var data = new Buffer('');
-  req.on('data', function(chunk) {
+  res.on('data', function(chunk) {
     data = Buffer.concat([data, chunk]);
+    console.log(receiving);
   });
-  req.on('end', function() {
+  res.on('end', function() {
     req.rawBody = data;
     pdfkitcontroller.createDocument(req.rawBody, res);
     next();
