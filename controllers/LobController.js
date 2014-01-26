@@ -35,6 +35,6 @@ exports.sendCustomPostCard = function(postcard, res, design, callback) {
     var resp = {};
     resp.success = "Postcard sent!";
     resp.id = response.id;
-    res.jsonp(resp);
+    res.jsonp(response.id);
   });
 }

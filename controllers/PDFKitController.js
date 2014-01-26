@@ -36,7 +36,7 @@ exports.createDocument = function(req, res) {
             console.log("Successfully uploaded pdf to myBucket/myKey");
 
             var pdfurl = "http://s3-us-west-2.amazonaws.com/postacard-heroku/" + text + ".pdf";
-            res.jsonp({pdf:pdfurl});
+            res.jsonp(pdfurl);
           }
         });
       });
