@@ -26,6 +26,7 @@ exports.createDocument = function(req, res) {
   var bufs = [];
   req.on('data', function(d){
     bufs.push(d);
+    console.log("receiving");
   });
   req.on('end', function(){
     var buf = Buffer.concat(bufs);
