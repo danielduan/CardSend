@@ -25,7 +25,7 @@ exports.createDocument = function(req, res) {
 
     var s3bucket = new AWS.S3({params: {Bucket: 'postacard-heroku'}});
     console.log("post length " + req.body.image.length);
-    doc.image(new Buffer(req.body.image, "base64"), 0, 0,width: 432, height: 288);
+    doc.image(new Buffer(req.body.image, "base64"), 0, 0, {width: 432, height: 288});
     doc.output(function(string) {
       s3bucket.createBucket(function() {
         var data = {Key: text + ".pdf", ACL:"public-read" , Body: string};
