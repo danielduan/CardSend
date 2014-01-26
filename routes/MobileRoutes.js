@@ -52,7 +52,7 @@ exports.sendcard = function(req, res) {
 exports.sendemail = function(req, res) {
   apicontroller.checkCardBalance(req.body.apikey, res, function(){
     sendgridcontroller.sendEmailCard(req.body.to_email, req.body.to_name,
-      req.body.from_name, req.body.pdf, req.body.message, res, function(){
+      req.body.from_name, req.body.card_design, req.body.message, res, function(){
       apicontroller.useCredits(req.body.apikey, 1);
     });
   });
