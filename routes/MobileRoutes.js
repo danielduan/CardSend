@@ -20,33 +20,6 @@ exports.cardbalance = function(req, res) {
 exports.createPDF = function(req, res) {
   pdfkitcontroller.createDocument(req, res);
 
-  // var data = new Buffer('');
-  // res.on('data', function(chunk) {
-  //   data = Buffer.concat([data, chunk]);
-  //   console.log(receiving);
-  // });
-  // res.on('end', function() {
-  //   req.rawBody = data;
-  //   pdfkitcontroller.createDocument(req.rawBody, res);
-  // });
-
-  // var bufs = [];
-  // req.on('data', function(d){
-  //   bufs.push(d);
-  //   console.log("receiving");
-  // });
-  // req.on('end', function(){
-  //   var buf = Buffer.concat(bufs);
-  //   pdfkitcontroller.createDocument(buf, res);
-  // });
-}
-
-// send postcards
-// /api/v1/card/send?key=_APIKEY
-// to_name, to_address1, to_address2, to_city, to_state, to_zip, to_country,
-// from_name, from_address1, from_address2, from_city, from_state,
-// from_zip, from_country,
-// card_design, message,
 exports.sendcard = function(req, res) {
   apicontroller.checkCardBalance(req.body.apikey, res, function(){
     var cardinfo = {
@@ -78,7 +51,8 @@ exports.sendcard = function(req, res) {
 
 exports.sendemail = function(req, res) {
   apicontroller.checkCardBalance(req.body.apikey, res, function(){
-    sendgridcontroller.sendEmailCard(req.body.to_email, req.body.to_name, req.body.from_name, res, function(){
+    sendgridcontroller.sendEmailCard(req.body.to_email, req.body.to_name,
+      req.body.from_name, req.body.pdf, req.body.message, res, function(){
       apicontroller.useCredits(req.body.apikey, 1);
     });
   });

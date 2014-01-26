@@ -19,19 +19,22 @@ exports.sendChargeConfirmation = function(email, key, credits, price){
 
 };
 
-exports.sendEmailCard = function(email, to_name, from_name, res){
-  var message = "Hi " + to_name + "! Here is your postcard. -" + from_name;
+exports.sendEmailCard = function(email, to_name, from_name, pdf, mess, res){
+  var message = "Hi " + to_name + "! Here is your postcard: " + pdf;
+  message += "\n";
+  message += mess;
+  message += "\n -" + from_name;
 
   sendgrid.send({
     to: email,
     from: 'order@postacard.herokuapp.com',
-    subject: 'PostaCard Order Confirmation',
+    subject: 'PostaCard',
     text: message
   }, function(err, json) {
   if (err) { return console.error(err); }
     console.log(json);
   });
   var response = {};
-    response.success = "Postcard sent!";
-    res.jsonp(response);
+    response.success = "Email sent!";
+    res.jsonp(response.success);
 };
