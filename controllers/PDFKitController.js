@@ -46,5 +46,5 @@ exports.createDocument = function(req, res) {
         });
       });
     });
-  }
+  });
 }
